@@ -36,7 +36,7 @@ public:
     void XemSP_Employees();
     
     //support
-    bool CheckID(string ID);
+    int CheckID(string ID);
     void LoadFile();
     void ThanhToan();
     

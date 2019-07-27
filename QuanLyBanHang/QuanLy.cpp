@@ -43,10 +43,11 @@ int NhanVien::SignIn()
     
     int i;
     cin>>i;
-    cout<<"Password:";
-    cin>>Password;
+    //admin
     if (i==1)
     {
+        cout<<"Password:";
+        cin>>Password;
         if(Password=="123456")
         {
             cout<<"Correct!"<<endl;
@@ -55,8 +56,11 @@ int NhanVien::SignIn()
         else
             cout<<"Password is uncorrect!"<<endl;
     }
+    //employees
     else if (i==2)
     {
+        cout<<"Password:";
+        cin>>Password;
         if (Password=="1")
         {
             cout<<"correct!"<<endl;
@@ -65,12 +69,14 @@ int NhanVien::SignIn()
         else
             cout<<"Password is uncorrect!"<<endl;
     }
+    //customer
     else if (i==3)
     {
         return 3;
     }
+    //exit
     else if (i==4)
-        return 0;
+        return 4;
 //    cout<<endl;
     return 0;
 }
@@ -85,13 +91,15 @@ void SanPham::NhapSP_Admin()
     {
         cout<<"MaSP:";
         cin>>MaSP;
-        if (CheckID(MaSP))
+        if (CheckID(MaSP)==1)
         {
             fout<<MaSP<<"    ";
             break;
         }
-        else
+        else if (CheckID(MaSP)==-1)
             cout<<"Ma SP da co!"<<endl;
+        else if (CheckID(MaSP)==-2)
+            cout<<"Ma SP phai co 4 ky tu!"<<endl;
     }
     fflush(stdin);
     cout<<"TenSP:";
@@ -108,7 +116,7 @@ void SanPham::NhapSP_Admin()
     fout<<GiaSi<<"   ";
     cout<<"Ton kho:";
     cin>>TonKho;
-    fout<<TonKho<<" ";
+    fout<<TonKho<<"     ";
     cout<<"Nha cung cap:";
     cin>>NhaCC;
     fout<<NhaCC;
@@ -157,13 +165,17 @@ void SanPham::XemSP_Customer()
          cout<<endl;
      }
 }
-bool SanPham::CheckID(string ID)
+int SanPham::CheckID(string ID)
 {
     int n=NLineFile();
     for (int i=0;i<n;i++)
+    {
         if (ID==A[i].MaSP)
-            return false;
-    return true;
+            return -1;
+        if (ID.length()!=4)
+            return -2;
+    }
+    return 1;
 }
 
 void Menu()

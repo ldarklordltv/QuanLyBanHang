@@ -10,7 +10,6 @@
 
 int main()
 {
-    
     NhanVien A;
     SanPham B;
     B.LoadFile();
@@ -56,17 +55,33 @@ int main()
         }
     else if (Loainhanvien==2)
     {
-        cout<<"1. Xem SP"<<endl;
-        int i;
-        cout<<"Your selection:";
-        cin>>i;
-        if (i==1)
-            B.XemSP_Customer();
+        while(1)
+        {
+            cout<<"1.Xem SP"<<endl;
+            int i;
+            cout<<"Your selection:";
+            cin>>i;
+            if (i==1)
+                B.XemSP_Customer();
+            cout<<"Quay lai Y/N:";
+            string select;
+            cin>>select;
+            if (select=="N"||select=="n")
+                break;
+        }
     }
     else if (Loainhanvien==3)
     {
-        cout<<"1.Xem SP"<<endl;
-        cout<<"2.Chon mua SP"<<endl;
+        while(1)
+        {
+            cout<<"1.Xem SP"<<endl;
+            cout<<"2.Chon mua SP"<<endl;
+            cout<<"Quay lai Y/N:";
+            string select;
+            cin>>select;
+            if (select=="N"||select=="n")
+                break;
+        }
         
     }
     else if (Loainhanvien==4)
