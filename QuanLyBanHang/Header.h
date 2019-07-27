@@ -24,6 +24,7 @@ private:
     int GiaLe;
     int GiaSi;
     int TonKho;
+    string NhaCC;
 public:
     //admin
     void NhapSP_Admin();

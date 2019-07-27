@@ -14,34 +14,63 @@ int main()
     NhanVien A;
     SanPham B;
     B.LoadFile();
-    int Loainhanvien=A.SignIn();
-    Menu();
     while(1)
     {
+        cout<<"1.Admin"<<endl;
+        cout<<"2.Employees"<<endl;
+        cout<<"3.Customer"<<endl;
+        cout<<"4.Exit"<<endl;
+        cout<<"Your selection:";
+        int Loainhanvien=A.SignIn();
         if (Loainhanvien==1)
         {
-            cout<<"1.Xem SP"<<endl;
-            cout<<"2.Nhap SP"<<endl;
-            cout<<"3.Exit"<<endl;
-            int i;
-            cout<<"Your selection:";
-            cin>>i;
-            if (i==1)
-                B.XemSP_Admin();
-            else if (i==2)
-                B.NhapSP_Admin();
-            else if (i==3)
-                exit(0);
+            while(1)
+            {
+                cout<<"1.Xem SP"<<endl;
+                cout<<"2.Nhap SP"<<endl;
+                cout<<"3.Exit"<<endl;
+                int i;
+                cout<<"Your selection:";
+                cin>>i;
+                if (i==1)
+                {
+                    B.XemSP_Admin();
+                    cout<<"Quay lai Y/N:";
+                    string select;
+                    cin>>select;
+                    if (select=="N"||select=="n")
+                        break;
+                }
+                else if (i==2)
+                {
+                    B.NhapSP_Admin();
+                    cout<<"Quay lai Y/N:";
+                    string select;
+                    cin>>select;
+                    if (select=="N"||select=="n")
+                        break;
+                }
+                else if (i==3)
+                    break;
+            }
         }
-        else if (Loainhanvien==2)
-        {
-            cout<<"1. Xem SP"<<endl;
-            int i;
-            cout<<"Your selection:";
-            cin>>i;
-            if (i==1)
-                B.XemSP_Customer();
-        }
+    else if (Loainhanvien==2)
+    {
+        cout<<"1. Xem SP"<<endl;
+        int i;
+        cout<<"Your selection:";
+        cin>>i;
+        if (i==1)
+            B.XemSP_Customer();
+    }
+    else if (Loainhanvien==3)
+    {
+        cout<<"1.Xem SP"<<endl;
+        cout<<"2.Chon mua SP"<<endl;
+        
+    }
+    else if (Loainhanvien==4)
+        break;
     }
     return 0;
 }

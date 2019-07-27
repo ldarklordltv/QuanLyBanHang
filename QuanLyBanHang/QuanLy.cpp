@@ -34,6 +34,7 @@ void SanPham:: LoadFile()
         fin>>A[i].GiaLe;
         fin>>A[i].GiaSi;
         fin>>A[i].TonKho;
+        fin>>A[i].NhaCC;
         i++;
     }
 }
@@ -64,6 +65,12 @@ int NhanVien::SignIn()
         else
             cout<<"Password is uncorrect!"<<endl;
     }
+    else if (i==3)
+    {
+        return 3;
+    }
+    else if (i==4)
+        return 0;
 //    cout<<endl;
     return 0;
 }
@@ -102,6 +109,9 @@ void SanPham::NhapSP_Admin()
     cout<<"Ton kho:";
     cin>>TonKho;
     fout<<TonKho<<" ";
+    cout<<"Nha cung cap:";
+    cin>>NhaCC;
+    fout<<NhaCC;
     fout<<endl;
     fout.close();
 }
@@ -112,7 +122,7 @@ void SanPham::XemSP_Admin()
     if (!f.is_open())
         cout<<"Failed to open this file!"<<endl;
     string line;
-    cout<<"MaSo    Ten     Giavon  Giale   Giasi Soluong"<<endl;
+    cout<<"MaSo    Ten     Giavon  Giale   Giasi  Soluong  NhaCungCap"<<endl;
     while(getline(f,line))
     {
         cout<<line<<endl;
@@ -158,7 +168,7 @@ bool SanPham::CheckID(string ID)
 
 void Menu()
 {
-    system("cls");
+//    system("cls");
     cout<<"1.Admin"<<endl;
     cout<<"2.Customeres"<<endl;
     cout<<"3.Exit"<<endl;
