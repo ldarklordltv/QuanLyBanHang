@@ -154,7 +154,7 @@ void SanPham::XemSP_Customer()
 {
      int n=NLineFile();
 //     cout<<"MaSo    Ten     Giavon  Giale   Giasi Soluong"<<endl;
-     for (int i=0;i<n;i++)
+     for (int i=0;i<n-1;i++)
      {
          cout<<A[i].MaSP<<" ";
          cout<<A[i].TenSP<<" ";
