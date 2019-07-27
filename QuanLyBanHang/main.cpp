@@ -21,6 +21,7 @@ int main()
         cout<<"4.Exit"<<endl;
         cout<<"Your selection:";
         int Loainhanvien=A.SignIn();
+        //admin
         if (Loainhanvien==1)
         {
             while(1)
@@ -53,40 +54,45 @@ int main()
                     break;
             }
         }
-    else if (Loainhanvien==2)
-    {
-        while(1)
+        //employ
+        else if (Loainhanvien==2)
         {
-            cout<<"1.Xem SP"<<endl;
-            int i;
-            cout<<"Your selection:";
-            cin>>i;
-            if (i==1)
-                B.XemSP_Customer();
-            cout<<"Quay lai Y/N:";
-            string select;
-            cin>>select;
-            if (select=="N"||select=="n")
-                break;
+            while(1)
+            {
+                cout<<"1.Xem SP"<<endl;
+                int i;
+                cout<<"Your selection:";
+                cin>>i;
+                if (i==1)
+                    B.XemSP_Employees();
+                cout<<"Quay lai Y/N:";
+                string select;
+                cin>>select;
+                if (select=="N"||select=="n")
+                    break;
+            }
         }
-    }
-    else if (Loainhanvien==3)
-    {
-        while(1)
+        else if (Loainhanvien==3)
         {
-            cout<<"1.Xem SP"<<endl;
-            cout<<"2.Chon mua SP"<<endl;
-            cout<<"Quay lai Y/N:";
-            string select;
-            cin>>select;
-            if (select=="N"||select=="n")
-                break;
+            while(1)
+            {
+                cout<<"1.Xem SP"<<endl;
+                cout<<"2.Chon mua SP"<<endl;
+                int i;
+                cout<<"Your selection:";
+                cin>>i;
+                if (i==1)
+                    B.XemSP_Customer();
+                cout<<"Quay lai Y/N:";
+                string select;
+                cin>>select;
+                if (select=="N"||select=="n")
+                    break;
+            }
         }
-        
-    }
-    else if (Loainhanvien==4)
-        break;
-    }
+        else if (Loainhanvien==4)
+            break;
+        }
     return 0;
 }
 

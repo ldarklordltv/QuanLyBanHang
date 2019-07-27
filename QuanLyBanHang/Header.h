@@ -29,16 +29,17 @@ public:
     //admin
     void NhapSP_Admin();
     void XemSP_Admin();
-    //customer
-    void XemSP_Customer();
-    
     //employees
     void XemSP_Employees();
+    
+    //customer
+    void XemSP_Customer();
     
     //support
     int CheckID(string ID);
     void LoadFile();
     void ThanhToan();
+    void logOut();
     
 };
 

@@ -165,6 +165,18 @@ void SanPham::XemSP_Customer()
          cout<<endl;
      }
 }
+
+void SanPham::XemSP_Employees()
+{
+    int n=NLineFile();
+    for (int i=0;i<n;i++)
+    {
+        cout<<A[i].MaSP<<" ";
+        cout<<A[i].TenSP<<" ";
+        cout<<A[i].GiaLe<<" ";
+        cout<<A[i].TonKho<<" ";
+    }
+}
 int SanPham::CheckID(string ID)
 {
     int n=NLineFile();
@@ -180,10 +192,13 @@ int SanPham::CheckID(string ID)
 
 void Menu()
 {
-//    system("cls");
     cout<<"1.Admin"<<endl;
     cout<<"2.Customeres"<<endl;
     cout<<"3.Exit"<<endl;
     cout<<"Your selection:";
 }
 
+void SanPham::logOut()
+{
+    
+}
