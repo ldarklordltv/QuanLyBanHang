@@ -190,6 +190,28 @@ int SanPham::CheckID(string ID)
     return 1;
 }
 
+void SanPham::ChonSP_Customer()
+{
+    cout<<"Vui long chon san pham can mua:"<<endl;
+    string SPmua;
+    cin.ignore();
+    getline(std::cin,SPmua);
+    ofstream fout("DanhSachMua.txt");
+    if(!fout.is_open())
+        cout<<"Failed to open this file!";
+    fout<<SPmua;
+    fout.close();
+}
+
+void SanPham::MuaHang_Customer()
+{
+    cout<<"Danh sach ban da chon:"<<endl;
+    ifstream f("DanhSachMua.txt");
+    if (!f.is_open())
+        cout<<"Failed to open file DanhSachMua!"<<endl;
+    
+}
+
 void Menu()
 {
     cout<<"1.Admin"<<endl;

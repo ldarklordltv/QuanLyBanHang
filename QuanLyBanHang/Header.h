@@ -31,9 +31,11 @@ public:
     void XemSP_Admin();
     //employees
     void XemSP_Employees();
-    
+    void ChonSP_Employees();
     //customer
     void XemSP_Customer();
+    void ChonSP_Customer();
+    void MuaHang_Customer();
     
     //support
     int CheckID(string ID);

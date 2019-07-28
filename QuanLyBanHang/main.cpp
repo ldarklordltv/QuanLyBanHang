@@ -82,12 +82,21 @@ int main()
                 cout<<"Your selection:";
                 cin>>i;
                 if (i==1)
+                {
                     B.XemSP_Customer();
-                cout<<"Quay lai Y/N:";
-                string select;
-                cin>>select;
-                if (select=="N"||select=="n")
-                    break;
+                    cout<<"Quay lai Y/N:";
+                    string select;
+                    cin>>select;
+                    if (select=="N"||select=="n")
+                        break;
+                }
+                else if (i==2)
+                {
+                    B.ChonSP_Customer();
+                    cout<<"Mua hang Y/N:";
+                    B.MuaHang_Customer();
+                }
+                
             }
         }
         else if (Loainhanvien==4)
@@ -95,5 +104,15 @@ int main()
         }
     return 0;
 }
+
+/*int main()
+{
+    string a;
+//    cin.ignore();
+    cout<<"Nhap:";
+    getline(std::cin,a);
+    cout<<a;
+    return 0;
+}*/
 
 
