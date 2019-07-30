@@ -20,6 +20,18 @@ int NLineFile()
         n++;
     return n;
 }
+
+int NLineFile(string Path)
+{
+    int n=0;
+    string line;
+    ifstream fin(Path);
+    if(!fin.is_open())
+        cout<<"Failed to open!";
+    while(getline(fin,line))
+        n++;
+    return n;
+}
 void SanPham:: LoadFile()
 {
     int i=0;
@@ -205,10 +217,38 @@ void SanPham::ChonSP_Customer()
 
 void SanPham::MuaHang_Customer()
 {
-    cout<<"Danh sach ban da chon:"<<endl;
+    cout<<"Danh sach SP ban da chon:";
     ifstream f("DanhSachMua.txt");
     if (!f.is_open())
         cout<<"Failed to open file DanhSachMua!"<<endl;
+    string a[20];
+    int z=0;
+    while(!f.eof())
+    {
+        
+        f>>a[z];
+        z++;
+    }
+    for (int i=0;i<z;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    f.close();
+}
+
+bool SanPham::CheckSP(string ID)
+{
+    for (int i=0;i<NLineFile();i++)
+    {
+        if (ID==A[i].MaSP)
+            return true;
+    }
+    return false;
+}
+
+void SanPham::XacNhan_MuaHang_Customer()
+{
     
 }
 

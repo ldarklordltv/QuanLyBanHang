@@ -36,9 +36,10 @@ public:
     void XemSP_Customer();
     void ChonSP_Customer();
     void MuaHang_Customer();
-    
+    void XacNhan_MuaHang_Customer();
+    bool CheckSP(string ID); //kiem tra ton tai san pham
     //support
-    int CheckID(string ID);
+    int CheckID(string ID); //kiem tra ID nhap vao co ton tai ko
     void LoadFile();
     void ThanhToan();
     void logOut();

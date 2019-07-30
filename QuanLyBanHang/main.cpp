@@ -60,16 +60,31 @@ int main()
             while(1)
             {
                 cout<<"1.Xem SP"<<endl;
+                cout<<"2.Chon SP"<<endl;
+                cout<<"3.Mua SP da chon"<<endl;
                 int i;
                 cout<<"Your selection:";
                 cin>>i;
                 if (i==1)
-                    B.XemSP_Employees();
-                cout<<"Quay lai Y/N:";
-                string select;
-                cin>>select;
-                if (select=="N"||select=="n")
-                    break;
+                {
+                    while (1)
+                    {
+                        B.XemSP_Employees();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
+                }
+                else if (i==2)
+                {
+                    while (1)
+                    {
+                        
+                        
+                    }
+                }
             }
         }
         else if (Loainhanvien==3)
@@ -78,23 +93,45 @@ int main()
             {
                 cout<<"1.Xem SP"<<endl;
                 cout<<"2.Chon mua SP"<<endl;
+                cout<<"3.Mua SP da chon"<<endl;
                 int i;
                 cout<<"Your selection:";
                 cin>>i;
                 if (i==1)
                 {
-                    B.XemSP_Customer();
-                    cout<<"Quay lai Y/N:";
-                    string select;
-                    cin>>select;
-                    if (select=="N"||select=="n")
-                        break;
+                    while(1)
+                    {
+                        B.XemSP_Customer();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
                 }
                 else if (i==2)
                 {
-                    B.ChonSP_Customer();
-                    cout<<"Mua hang Y/N:";
-                    B.MuaHang_Customer();
+                    while(1)
+                    {
+                        B.ChonSP_Customer();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
+                }
+                else if (i==3)
+                {
+                    while (1)
+                    {
+                        B.MuaHang_Customer();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
                 }
             }
         }
@@ -103,7 +140,6 @@ int main()
         }
     return 0;
 }
-//phucta commit 30/7
 
 
 
