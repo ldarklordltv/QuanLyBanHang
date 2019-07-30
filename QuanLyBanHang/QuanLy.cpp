@@ -186,7 +186,9 @@ void SanPham::XemSP_Employees()
         cout<<A[i].MaSP<<" ";
         cout<<A[i].TenSP<<" ";
         cout<<A[i].GiaLe<<" ";
+        cout<<A[i].GiaSi<<" ";
         cout<<A[i].TonKho<<" ";
+        cout<<endl;
     }
 }
 int SanPham::CheckID(string ID)
@@ -238,7 +240,7 @@ void SanPham::MuaHang_Customer()
     cout<<endl;
     f.close();
     InfoSP();
-    
+    UpdateTonKho();
 }
 
 bool SanPham::CheckSP(string ID)
@@ -331,9 +333,60 @@ void SanPham::TruKho()
                     cout<<"So luong trong kho khong du!"<<endl;
             }
         }
-    
     f.close();
 }
+
+void SanPham::UpdateTonKho()
+{
+    ofstream fout("SanPham2.txt");
+    if (!fout.is_open())
+        cout<<"Failed to open this file!"<<endl;
+    for (int i=0;i<NLineFile()-1;i++)
+    {
+        fout<<A[i].MaSP<<" "<<A[i].TenSP<<" "<<A[i].GiaVon<<" "<<A[i].GiaLe<<" "<<A[i].GiaSi<<" "<<A[i].TonKho<<" "<<A[i].NhaCC<<endl;
+    }
+    fout.close();
+}
+
+void SanPham::ChonSP_Employees()
+{
+    
+    cout<<"Chon san pham can ban (MaSP Soluong):"<<endl;
+    string SPmua;
+    cin.ignore();
+    getline(std::cin,SPmua);
+    remove("DanhSachBan.txt");
+    ofstream fout("DanhSachBan.txt");
+    if(!fout.is_open())
+        cout<<"Failed to open this file!";
+    fout<<SPmua;
+    fout.close();
+}
+
+void SanPham::ThanhToan_Employees()
+{
+    cout<<"Danh sach SP ban da chon:";
+    ifstream f("DanhSachBan.txt");
+    if (!f.is_open())
+        cout<<"Failed to open file DanhSachMua!"<<endl;
+    string a[20],b[20];
+    int z=0;
+    while(!f.eof())
+    {
+        f>>a[z];
+        f>>b[z];
+        z++;
+    }
+    for (int i=0;i<z;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    f.close();
+    InfoSP();
+    UpdateTonKho();
+}
+
 void Menu()
 {
     cout<<"1.Admin"<<endl;

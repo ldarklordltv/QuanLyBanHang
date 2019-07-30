@@ -33,6 +33,7 @@ public:
     //employees
     void XemSP_Employees();
     void ChonSP_Employees();
+    void ThanhToan_Employees();
     //customer
     void XemSP_Customer();
     void ChonSP_Customer();
@@ -46,7 +47,7 @@ public:
     void ThanhToan();
     void logOut();
     void TruKho();//sau khi hoan tat mua san pham
-    void UpdateTonKho();
+    void UpdateTonKho();//cap nhat kho
     
 };
 
