@@ -1,10 +1,4 @@
-//
-//  main.cpp
-//  QuanLyBanHang
-//
-//  Created by Phuc Tran on 7/26/19.
-//  Copyright © 2019 Phuc Tran. All rights reserved.
-//
+
 
 #include "Header.h"
 
@@ -109,6 +103,7 @@ int main()
         }
     return 0;
 }
+//phucta commit 30/7
 
 
 
