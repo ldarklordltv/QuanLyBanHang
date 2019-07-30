@@ -12,6 +12,7 @@
 #include <fstream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 int NLineFile();
@@ -36,13 +37,16 @@ public:
     void XemSP_Customer();
     void ChonSP_Customer();
     void MuaHang_Customer();
-    void XacNhan_MuaHang_Customer();
+    
     bool CheckSP(string ID); //kiem tra ton tai san pham
+    void InfoSP();
     //support
     int CheckID(string ID); //kiem tra ID nhap vao co ton tai ko
     void LoadFile();
     void ThanhToan();
     void logOut();
+    void TruKho();//sau khi hoan tat mua san pham
+    void UpdateTonKho();
     
 };
 

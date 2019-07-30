@@ -204,10 +204,12 @@ int SanPham::CheckID(string ID)
 
 void SanPham::ChonSP_Customer()
 {
-    cout<<"Vui long chon san pham can mua:"<<endl;
+    
+    cout<<"Vui long chon san pham can mua (MaSP Soluong):"<<endl;
     string SPmua;
     cin.ignore();
     getline(std::cin,SPmua);
+    remove("DanhSachMua.txt");
     ofstream fout("DanhSachMua.txt");
     if(!fout.is_open())
         cout<<"Failed to open this file!";
@@ -221,12 +223,12 @@ void SanPham::MuaHang_Customer()
     ifstream f("DanhSachMua.txt");
     if (!f.is_open())
         cout<<"Failed to open file DanhSachMua!"<<endl;
-    string a[20];
+    string a[20],b[20];
     int z=0;
     while(!f.eof())
     {
-        
         f>>a[z];
+        f>>b[z];
         z++;
     }
     for (int i=0;i<z;i++)
@@ -235,6 +237,8 @@ void SanPham::MuaHang_Customer()
     }
     cout<<endl;
     f.close();
+    InfoSP();
+    
 }
 
 bool SanPham::CheckSP(string ID)
@@ -247,11 +251,89 @@ bool SanPham::CheckSP(string ID)
     return false;
 }
 
-void SanPham::XacNhan_MuaHang_Customer()
+void SanPham::InfoSP()
 {
-    
+    while(1)
+    {
+        ifstream f("DanhSachMua.txt");
+        if(!f.is_open())
+            cout<<"Failed to open this file!"<<endl;
+        string a[20],b[20];
+        int z=0;
+        while(!f.eof())
+        {
+            f>>a[z];
+            f>>b[z];
+            z++;
+        }
+        int tt[z],s=0;
+        for (int i=0;i<z;i++)
+        {
+            if (CheckSP(a[z])==false)
+                cout<<"San pham "<<a[z]<<" khong ton tai!";
+            else
+            {
+                stringstream geek(b[i]);
+                int x=0;
+                geek >>x;
+                tt[z]=A[i].GiaLe*x;
+                s+=s+tt[z];
+                cout<<A[i].MaSP<<" "<<A[i].TenSP<<" "<<A[i].GiaLe<<" "<<b[i]<<" "<<A[i].GiaLe*x <<endl;
+            }
+        }
+        cout<<"Ban muon mua cac san pham tren (Y/N)?:";
+        string select;
+        cin>>select;
+        if (select=="Y"||select=="y")
+        {
+            cout<<"Tong so tien can thanh toan la:"<<s<<endl;
+            cout<<"Tiep tuc thanh toan (Y/N)?:";
+            string select1;
+            cin>>select1;
+            if (select1=="Y"||select1=="y")
+            {
+                TruKho();
+                cout<<"Giao dich thanh cong!"<<endl;
+                break;
+            }
+            else if (select1=="N"||select1=="n")
+                break;
+        }
+        else if (select=="N"||select=="n")
+            break;
+    }
 }
 
+void SanPham::TruKho()
+{
+    ifstream f("DanhSachMua.txt");
+    if (!f.is_open())
+        cout<<"Failed to open this file!"<<endl;
+    string a[20],b[20];
+    int z=0;
+    while(!f.eof())
+    {
+        f>>a[z];
+        f>>b[z];
+        z++;
+    }
+    for (int i=0;i<NLineFile()-1;i++)
+        for (int j=0;j<z;j++)
+        {
+            if (A[i].MaSP==a[j])
+            {
+                stringstream geek(b[j]);
+                int x=0;
+                geek >>x;
+                if (A[i].TonKho>=x)
+                    A[i].TonKho=A[i].TonKho-x;
+                else
+                    cout<<"So luong trong kho khong du!"<<endl;
+            }
+        }
+    
+    f.close();
+}
 void Menu()
 {
     cout<<"1.Admin"<<endl;
