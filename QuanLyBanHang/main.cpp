@@ -28,33 +28,39 @@ int main()
             {
                 cout<<"1.Xem SP"<<endl;
                 cout<<"2.Nhap SP"<<endl;
-                cout<<"3.Exit"<<endl;
+                cout<<"3.Log Out"<<endl;
                 int i;
                 cout<<"Your selection:";
                 cin>>i;
                 if (i==1)
                 {
-                    B.XemSP_Admin();
-                    cout<<"Quay lai Y/N:";
-                    string select;
-                    cin>>select;
-                    if (select=="N"||select=="n")
-                        break;
+                    while(1)
+                    {
+                        B.XemSP_Admin();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
                 }
                 else if (i==2)
                 {
-                    B.NhapSP_Admin();
-                    cout<<"Quay lai Y/N:";
-                    string select;
-                    cin>>select;
-                    if (select=="N"||select=="n")
-                        break;
+                    while(1)
+                    {
+                        B.NhapSP_Admin();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
                 }
                 else if (i==3)
                     break;
             }
         }
-        //employ
+        //employees
         else if (Loainhanvien==2)
         {
             while(1)
@@ -96,7 +102,6 @@ int main()
                     cout<<"Mua hang Y/N:";
                     B.MuaHang_Customer();
                 }
-                
             }
         }
         else if (Loainhanvien==4)
@@ -105,14 +110,5 @@ int main()
     return 0;
 }
 
-/*int main()
-{
-    string a;
-//    cin.ignore();
-    cout<<"Nhap:";
-    getline(std::cin,a);
-    cout<<a;
-    return 0;
-}*/
 
 

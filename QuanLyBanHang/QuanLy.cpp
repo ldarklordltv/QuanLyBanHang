@@ -220,7 +220,4 @@ void Menu()
     cout<<"Your selection:";
 }
 
-void SanPham::logOut()
-{
-    
-}
+
