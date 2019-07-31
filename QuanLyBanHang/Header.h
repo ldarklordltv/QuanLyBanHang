@@ -57,7 +57,6 @@ private:
     string Password;
 public:
     int SignIn();
-	int SignOut();
 };
 
 
