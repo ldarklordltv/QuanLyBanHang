@@ -1,10 +1,4 @@
-//
-//  QuanLy.cpp
-//  QuanLyBanHang
-//
-//  Created by Phuc Tran on 7/26/19.
-//  Copyright © 2019 Phuc Tran. All rights reserved.
-//
+
 
 #include "Header.h"
 SanPham A[200];
@@ -93,6 +87,49 @@ int NhanVien::SignIn()
     return 0;
 }
 
+
+int NhanVien::SignOut()
+{
+    
+    int i;
+    cin>>i;
+    //admin
+    if (i==1)
+    {
+        cout<<"Password:";
+        cin>>Password;
+        if(Password=="123456")
+        {
+            cout<<"Correct!"<<endl;
+            return 1;
+        }
+        else
+            cout<<"Password is uncorrect!"<<endl;
+    }
+    //employees
+    else if (i==2)
+    {
+        cout<<"Password:";
+        cin>>Password;
+        if (Password=="1")
+        {
+            cout<<"correct!"<<endl;
+            return 2;
+        }
+        else
+            cout<<"Password is uncorrect!"<<endl;
+    }
+    //customer
+    else if (i==3)
+    {
+        return 3;
+    }
+    //exit
+    else if (i==4)
+        return 4;
+//    cout<<endl;
+    return 0;
+}
 
 void SanPham::NhapSP_Admin()
 {
