@@ -185,8 +185,11 @@ int main()
             }
         }
         else if (Loainhanvien==4)
+        {
+//            system("cls");
             break;
         }
+    }
     return 0;
 }
 

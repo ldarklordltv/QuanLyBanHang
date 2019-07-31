@@ -283,10 +283,12 @@ void SanPham::InfoSP(string Path)
                 cout<<A[i].MaSP<<" "<<A[i].TenSP<<" "<<A[i].GiaLe<<" "<<b[i]<<" "<<A[i].GiaLe*x <<endl;
             }
         }
-        cout<<"Thanh toan (Y/N)?:";
+//        cout<<"Thanh toan (Y/N)?:";
+        cout<<"Ma giam gia/Ma khach hang:";
         string select;
         cin>>select;
-        if (select=="Y"||select=="y")
+        /*Thanh toan ko co ma giam gia/khtt
+         if (select=="Y"||select=="y")
         {
             cout<<"Tong so tien can thanh toan la:"<<s<<endl;
             cout<<"Tiep tuc thanh toan (Y/N)?:";
@@ -302,6 +304,40 @@ void SanPham::InfoSP(string Path)
                 break;
         }
         else if (select=="N"||select=="n")
+            break;
+         */
+        
+//        Thanh toan co ma KH/Discount
+        if (select=="-50")
+        {
+            cout<<"Tong tien san pham:"<<s<<endl;
+            cout<<"Duoc giam:"<<select<<endl;
+            cout<<"Tong tien can thanh toan la:"<<s-50<<endl;
+        }
+        else if (select=="KHTT"||select=="khtt")
+        {
+            cout<<"Tong tien san pham:"<<s<<endl;
+            if (0.05*s>1000)
+            {
+                cout<<"Duoc giam KHTT 5% (toi da 1000):"<<1000<<endl;
+                cout<<"Tong tien can thanh toan la:"<<s-1000<<endl;
+            }
+            else
+            {
+                cout<<"Duoc giam KHTT 5% (toi da 1000):"<<0.05*s<<endl;
+                cout<<"Tong tien can thanh toan la:"<<0.95*s<<endl;
+            }
+        }
+        cout<<"Tiep tuc thanh toan (Y/N)?";
+        string select1;
+        cin>>select1;
+        if(select1=="Y"||select1=="y")
+        {
+            TruKho(Path);
+            cout<<"Giao dich thanh cong!"<<endl;
+            break;
+        }
+        else if (select1=="N"||select1=="n")
             break;
     }
 }

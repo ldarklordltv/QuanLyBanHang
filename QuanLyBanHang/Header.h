@@ -30,6 +30,7 @@ public:
     //admin
     void NhapSP_Admin();
     void XemSP_Admin();
+    void XoaSP_Admin();
     //employees
     void XemSP_Employees();
     void ChonSP_Employees();
