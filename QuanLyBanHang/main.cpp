@@ -22,7 +22,9 @@ int main()
             {
                 cout<<"1.Xem SP"<<endl;
                 cout<<"2.Nhap SP"<<endl;
-                cout<<"3.Log Out"<<endl;
+                cout<<"3.Chon SP"<<endl;
+                cout<<"4.Ban SP da chon"<<endl;
+                cout<<"5.Log Out"<<endl;
                 int i;
                 cout<<"Your selection:";
                 cin>>i;
@@ -51,6 +53,30 @@ int main()
                     }
                 }
                 else if (i==3)
+                {
+                    while (1)
+                    {
+                        B.ChonSP_Employees();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
+                }
+                else if (i==4)
+                {
+                    while (1)
+                    {
+                        B.ThanhToan_Employees();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
+                }
+                else if (i==5)
                     break;
             }
         }
@@ -61,7 +87,7 @@ int main()
             {
                 cout<<"1.Xem SP"<<endl;
                 cout<<"2.Chon SP"<<endl;
-                cout<<"3.Mua SP da chon"<<endl;
+                cout<<"3.Ban SP da chon"<<endl;
                 cout<<"4.Log Out"<<endl;
                 int i;
                 cout<<"Your selection:";
@@ -83,7 +109,24 @@ int main()
                     while (1)
                     {
                         
-                        
+                        B.ChonSP_Employees();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
+                    }
+                }
+                else if (i==3)
+                {
+                    while (1)
+                    {
+                        B.ThanhToan_Employees();
+                        cout<<"Quay lai Y/N:";
+                        string select;
+                        cin>>select;
+                        if (select=="Y"||select=="y")
+                            break;
                     }
                 }
                 else if (i==4)

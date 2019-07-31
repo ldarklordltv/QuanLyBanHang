@@ -60,7 +60,7 @@ int NhanVien::SignIn()
     {
         cout<<"Password:";
         cin>>Password;
-        if(Password=="123456")
+        if(Password=="123456"||Password=="admin")
         {
             cout<<"Correct!"<<endl;
             return 1;
@@ -73,7 +73,7 @@ int NhanVien::SignIn()
     {
         cout<<"Password:";
         cin>>Password;
-        if (Password=="1")
+        if (Password=="1"||Password=="employees")
         {
             cout<<"correct!"<<endl;
             return 2;
@@ -239,7 +239,7 @@ void SanPham::MuaHang_Customer()
     }
     cout<<endl;
     f.close();
-    InfoSP();
+    InfoSP("DanhSachMua.txt");
     UpdateTonKho();
 }
 
@@ -253,11 +253,11 @@ bool SanPham::CheckSP(string ID)
     return false;
 }
 
-void SanPham::InfoSP()
+void SanPham::InfoSP(string Path)
 {
     while(1)
     {
-        ifstream f("DanhSachMua.txt");
+        ifstream f(Path);
         if(!f.is_open())
             cout<<"Failed to open this file!"<<endl;
         string a[20],b[20];
@@ -271,19 +271,19 @@ void SanPham::InfoSP()
         int tt[z],s=0;
         for (int i=0;i<z;i++)
         {
-            if (CheckSP(a[z])==false)
-                cout<<"San pham "<<a[z]<<" khong ton tai!";
+            if (CheckSP(a[i])==false)
+                cout<<"San pham "<<a[i]<<" khong ton tai!"<<endl;
             else
             {
                 stringstream geek(b[i]);
                 int x=0;
                 geek >>x;
-                tt[z]=A[i].GiaLe*x;
-                s+=s+tt[z];
+                tt[i]=A[i].GiaLe*x;
+                s+=tt[i];
                 cout<<A[i].MaSP<<" "<<A[i].TenSP<<" "<<A[i].GiaLe<<" "<<b[i]<<" "<<A[i].GiaLe*x <<endl;
             }
         }
-        cout<<"Ban muon mua cac san pham tren (Y/N)?:";
+        cout<<"Thanh toan (Y/N)?:";
         string select;
         cin>>select;
         if (select=="Y"||select=="y")
@@ -294,7 +294,7 @@ void SanPham::InfoSP()
             cin>>select1;
             if (select1=="Y"||select1=="y")
             {
-                TruKho();
+                TruKho(Path);
                 cout<<"Giao dich thanh cong!"<<endl;
                 break;
             }
@@ -306,9 +306,9 @@ void SanPham::InfoSP()
     }
 }
 
-void SanPham::TruKho()
+void SanPham::TruKho(string Path)
 {
-    ifstream f("DanhSachMua.txt");
+    ifstream f(Path);
     if (!f.is_open())
         cout<<"Failed to open this file!"<<endl;
     string a[20],b[20];
@@ -329,8 +329,10 @@ void SanPham::TruKho()
                 geek >>x;
                 if (A[i].TonKho>=x)
                     A[i].TonKho=A[i].TonKho-x;
-                else
-                    cout<<"So luong trong kho khong du!"<<endl;
+                else if (A[i].TonKho<x)
+                {
+                    cout<<"San pham "<<A[i].MaSP<<" "<<A[i].TenSP<<" trong kho chi con: "<<A[i].TonKho<<endl;
+                }
             }
         }
     f.close();
@@ -383,7 +385,7 @@ void SanPham::ThanhToan_Employees()
     }
     cout<<endl;
     f.close();
-    InfoSP();
+    InfoSP("DanhSachBan.txt");
     UpdateTonKho();
 }
 
