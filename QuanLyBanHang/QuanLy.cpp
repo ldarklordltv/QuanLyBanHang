@@ -32,7 +32,7 @@ void SanPham:: LoadFile()
         i++;
     }
 }
-int NhanVien::SignIN()
+/*int NhanVien::SignIN()
 {
 	int c;
 	char a[10];
@@ -102,14 +102,9 @@ int NhanVien::SignIN()
 //    cout<<endl;
     return 0;
 }
-    ifstream fin("account.txt");
-    if(!fin.is_open())
-        cout<<"Failed to open file";
-	while(!fin.eof())
-	{
 
-	}
 
+*/
 
 	
 }
