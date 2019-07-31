@@ -32,6 +32,87 @@ void SanPham:: LoadFile()
         i++;
     }
 }
+int NhanVien::SignIN()
+{
+	int c;
+	char a[10];
+    cin>>i;
+    //admin
+    if (c==1)
+    {
+		i=0;
+        cout<<"Password:";
+        cin>>Password;
+		ifstream fin("admin.txt");
+		if(!fin.is_open())
+			cout<<"Failed to open file";
+		while(!fin.eof())
+		{
+			fin>>a[i];
+			i++
+		}
+		while(i>-1)
+		{
+			if(Password==a[i-1])
+			{
+				out<<"Correct!"<<endl;
+				return 1;
+			}
+			i--;
+		}
+		else
+			cout<<"Password is uncorrect!"<<endl;
+	}
+
+	
+    //employees
+    else if (c==2)
+    {
+        i=0;
+        cout<<"Password:";
+        cin>>Password;
+		ifstream fin("employess.txt");
+		if(!fin.is_open())
+			cout<<"Failed to open file";
+		while(!fin.eof())
+		{
+			fin>>a[i];
+			i++
+		}
+		while(i>-1)
+		{
+			if(Password==a[i-1])
+			{
+				out<<"Correct!"<<endl;
+				return 1;
+			}
+			i--;
+		}
+		else
+			cout<<"Password is uncorrect!"<<endl;
+	}
+    //customer
+    else if (c==3)
+    {
+        return 3;
+    }
+    //exit
+    else if (c==4)
+        return 4;
+//    cout<<endl;
+    return 0;
+}
+    ifstream fin("account.txt");
+    if(!fin.is_open())
+        cout<<"Failed to open file";
+	while(!fin.eof())
+	{
+
+	}
+
+
+	
+}
 int NhanVien::SignIn()
 {
     
@@ -117,6 +198,10 @@ int NhanVien::SignOut()
         return 4;
 //    cout<<endl;
     return 0;
+}
+int NhanVien::Information()
+{
+
 }
 
 void SanPham::NhapSP_Admin()
