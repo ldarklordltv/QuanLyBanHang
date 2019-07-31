@@ -1,10 +1,4 @@
-//
-//  Header.h
-//  QuanLyBanHang
-//
-//  Created by Phuc Tran on 7/26/19.
-//  Copyright © 2019 Phuc Tran. All rights reserved.
-//
+
 
 #ifndef Header_h
 #define Header_h
@@ -63,6 +57,7 @@ private:
     string Password;
 public:
     int SignIn();
+	int SignOut();
 };
 
 
